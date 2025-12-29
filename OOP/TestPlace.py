@@ -20,12 +20,24 @@ class Archer(User):
         self._name = name
         self._num_arrows = num_arrows
 
-    def attack(self):
+    def arrows(self):
         print(f"attacking with arrows {self._num_arrows}")
 
+    def run(self):
+        print("ran really fast")
 
+
+class Hybrid(Wizard, Archer):
+    def __init__(self, name, power, arrows):
+        Wizard.__init__(self, name, power)
+        Archer.__init__(self, name, arrows)
+
+
+hb1 = Hybrid("John", 100, 20)
 wizard1 = Wizard("Merlin", 50)
 archer1 = Archer("Robin", 100)
 
-for char in [wizard1, archer1]:
-    char.attack()
+# for char in [wizard1, archer1]:
+#   char.attack()
+
+print(hb1.arrows())
